@@ -1,0 +1,85 @@
+version: '3.8'
+
+services:
+  # Web Server (Edge Proxy Nginx)
+  web:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./:/var/www/html
+      - ./docker/nginx/conf.d:/etc/nginx/conf.d
+    networks:
+      - kira_network
+    depends_on:
+      - app
+
+  # The Engine (PHP 8.3 FPM Laravel Kernel)
+  app:
+    # Build ditarik dari mesin rakitan di folder ./docker/php
+    image: php:8.3-fpm-alpine
+    volumes:
+      - ./:/var/www/html
+    environment:
+      - DB_CONNECTION=pgsql
+      - DB_HOST=pgsql
+      - DB_PORT=5432
+      - DB_DATABASE=${DB_DATABASE:-kira_fomo_db}
+      - DB_USERNAME=${DB_USERNAME:-kira_admin}
+      - DB_PASSWORD=${DB_PASSWORD:-kira_secure_password}
+      - CACHE_DRIVER=redis
+      - SESSION_DRIVER=redis
+      - QUEUE_CONNECTION=redis
+    networks:
+      - kira_network
+    depends_on:
+      - pgsql
+      - redis
+
+  # Relational DB (PostgreSQL 15 Master Node Prototype)
+  pgsql:
+    image: postgres:15-alpine
+    restart: unless-stopped
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: ${DB_DATABASE:-kira_fomo_db}
+      POSTGRES_USER: ${DB_USERNAME:-kira_admin}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-kira_secure_password}
+    volumes:
+      - pgsql-data:/var/lib/postgresql/data
+    networks:
+      - kira_network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U kira_admin -d kira_fomo_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  # InMemory DB (Redis Cluster Prototype)
+  redis:
+    image: redis:7-alpine
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+    command: redis-server --appendonly yes --requirepass ${REDIS_PASSWORD:-kira_redis_secret}
+    networks:
+      - kira_network
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+networks:
+  kira_network:
+    driver: bridge
+
+volumes:
+  pgsql-data:
+    driver: local
+  redis-data:
+    driver: local

@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-bg-primary: #fffffe;
+    --color-text-headline: #272343;
+    --color-text-body: #2d334a;
+    --color-btn-fomo: #ffd803;
+    --color-btn-text: #272343;
+    --color-stroke: #272343;
+    --color-surface-secondary: #e3f6f5;
+    --color-surface-tertiary: #bae8e8;
+  }
+
+  body {
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-body);
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--color-text-headline);
+    font-weight: 800;
+  }
+}
+
+@layer components {
+  /* Komponen Abstrak / Stateless */
+  .btn-fomo {
+    @apply bg-button-fomo text-button-text font-black tracking-wide py-3 px-8 rounded-lg border-2 border-stroke transition-transform hover:scale-105 active:scale-95 shadow-[4px_4px_0px_0px_rgba(39,35,67,1)];
+  }
+  
+  .card-premium {
+    @apply bg-background border-2 border-stroke rounded-xl overflow-hidden transition-all hover:-translate-y-1 hover:shadow-[8px_8px_0px_0px_rgba(39,35,67,1)];
+  }
+
+  .badge-community {
+    @apply bg-tertiary text-headline text-xs font-bold px-3 py-1 border border-stroke rounded-full uppercase tracking-wider;
+  }
+}
