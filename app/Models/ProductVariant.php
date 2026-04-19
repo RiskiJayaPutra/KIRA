@@ -15,7 +15,8 @@ class ProductVariant extends Model
         'variant_name',
         'stock',
         'price',
-        'drop_rate'
+        'drop_rate',
+        'image_url',
     ];
 
     protected $casts = [

@@ -19,8 +19,8 @@
         <div class="text-3xl font-black tracking-tighter text-headline cursor-pointer hover:scale-105 transition-transform">
             KIRA<span class="text-button-fomo" style="-webkit-text-stroke: 1px #272343;">.</span>
         </div>
-        <div class="hidden md:flex gap-8 items-center">
-            <a href="#" class="font-bold text-headline hover:text-button-fomo hover:underline decoration-4 underline-offset-4 transition-all">Catalog</a>
+        <div class="hidden md:flex items-center gap-8">
+            <a href="{{ route('catalog') }}" wire:navigate class="font-bold text-headline hover:text-button-fomo hover:underline decoration-4 underline-offset-4 transition-all">Catalog</a>
             <a href="#" class="font-bold text-headline hover:text-button-fomo hover:underline decoration-4 underline-offset-4 transition-all">Drops</a>
             <a href="#" class="font-bold text-headline hover:text-button-fomo hover:underline decoration-4 underline-offset-4 transition-all">Affiliate</a>
             @auth

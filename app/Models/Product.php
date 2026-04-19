@@ -15,6 +15,7 @@ class Product extends Model
         'name',
         'is_blindbox',
         'description',
+        'image_url',
         'release_date'
     ];
 
