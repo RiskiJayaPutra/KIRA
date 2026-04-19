@@ -34,7 +34,8 @@ class SecurityHeaders
 
         // 6. Content Security Policy (CSP)
         // Membatasi dari mana saja script (GSAP/Tailwind) boleh dimuat.
-        $csp = "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:;";
+        // Di mode development, izinkan juga koneksi ke Vite HMR (localhost:5173)
+        $csp = "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdnjs.cloudflare.com http://localhost:5173 http://127.0.0.1:5173; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://fonts.bunny.net; font-src 'self' https://fonts.gstatic.com https://fonts.bunny.net; img-src 'self' data: https:; connect-src 'self' ws://localhost:5173 ws://127.0.0.1:5173 http://localhost:5173 http://127.0.0.1:5173;";
         $response->headers->set('Content-Security-Policy', $csp);
 
         return $response;
