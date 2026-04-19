@@ -10,7 +10,7 @@ use Livewire\Attributes\Title;
 use Illuminate\Support\Facades\RateLimiter;
 
 #[Layout('components.layouts.app')]
-#[Title('Masuk ke Markas - Kira.com')]
+#[Title('Sign In - Kira.com')]
 class Login extends Component
 {
     public $email = '';
@@ -41,7 +41,7 @@ class Login extends Component
         RateLimiter::hit($throttleKey);
 
         throw ValidationException::withMessages([
-            'email' => 'Identitas atau sandi rahasia tidak valid.',
+            'email' => 'Email atau password tidak valid.',
         ]);
     }
 

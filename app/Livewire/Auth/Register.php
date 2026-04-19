@@ -10,7 +10,7 @@ use Livewire\Attributes\Layout;
 use Livewire\Attributes\Title;
 
 #[Layout('components.layouts.app')]
-#[Title('Rekrutmen Agen - Kira.com')]
+#[Title('Register - Kira.com')]
 class Register extends Component
 {
     public $name = '';
@@ -25,8 +25,8 @@ class Register extends Component
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:8|confirmed',
         ], [
-            'email.unique' => 'Email ini sudah didaftarkan oleh agen lain.',
-            'password.confirmed' => 'Kata sandi tidak cocok. Jangan ceroboh.',
+            'email.unique' => 'Email ini sudah terdaftar.',
+            'password.confirmed' => 'Konfirmasi password tidak sesuai.',
         ]);
 
         $user = User::create([
