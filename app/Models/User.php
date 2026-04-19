@@ -28,6 +28,12 @@ class User extends Authenticatable
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            'kira_points' => 'integer',
         ];
+    }
+
+    public function addresses()
+    {
+        return $this->hasMany(Address::class);
     }
 }
