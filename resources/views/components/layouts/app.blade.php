@@ -23,7 +23,15 @@
             <a href="#" class="font-bold text-headline hover:text-button-fomo hover:underline decoration-4 underline-offset-4 transition-all">Catalog</a>
             <a href="#" class="font-bold text-headline hover:text-button-fomo hover:underline decoration-4 underline-offset-4 transition-all">Drops</a>
             <a href="#" class="font-bold text-headline hover:text-button-fomo hover:underline decoration-4 underline-offset-4 transition-all">Affiliate</a>
-            <button class="btn-fomo py-2 px-6">Login</button>
+            @auth
+                <a href="{{ route('dashboard') }}" class="font-bold text-headline hover:text-button-fomo hover:underline decoration-4 underline-offset-4 transition-all" wire:navigate>Dashboard</a>
+                <form action="{{ route('logout') }}" method="POST" class="inline">
+                    @csrf
+                    <button type="submit" class="btn-fomo py-2 px-6">Logout</button>
+                </form>
+            @else
+                <a href="{{ route('login') }}" class="btn-fomo py-2 px-6" wire:navigate>Login</a>
+            @endauth
         </div>
     </nav>
 
