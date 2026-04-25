@@ -20,6 +20,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard', \App\Livewire\Profile\Dashboard::class)->name('dashboard');
     Route::get('/dashboard/addresses', \App\Livewire\Profile\AddressBook::class)->name('address.book');
     Route::get('/dashboard/wishlist', \App\Livewire\Profile\WishlistPage::class)->name('wishlist');
+    Route::get('/checkout/delivery', \App\Livewire\Checkout\Delivery::class)->name('checkout.delivery');
+    
+    // Placeholder untuk Fase 33 (Tripay)
+    Route::get('/checkout/payment/{order}', function ($order) {
+        return "Fase 33: Halaman Pembayaran (Akan diintegrasikan dengan Tripay nanti). Order ID: " . $order;
+    })->name('checkout.payment');
     
     Route::post('/logout', function () {
         auth()->logout();

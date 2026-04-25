@@ -65,10 +65,16 @@
                 <span class="font-black text-headline text-3xl" style="text-shadow: 2px 2px 0 #ffd803;">Rp {{ number_format($subtotal, 0, ',', '.') }}</span>
             </div>
             <p class="text-sm font-bold text-paragraph mb-4">Belum termasuk ongkos kirim. Pengiriman akan dihitung di fase selanjutnya.</p>
-            <button class="w-full bg-button-fomo text-headline font-black text-2xl py-5 border-4 border-stroke hover:-translate-y-1 shadow-[6px_6px_0px_0px_#272343] active:translate-y-0 active:shadow-none transition-all flex justify-center items-center gap-4">
-                <span>CHECKOUT</span>
-                <span>🔥</span>
-            </button>
+            @if(count($cartItems) > 0)
+                <a href="{{ route('checkout.delivery') }}" wire:navigate class="w-full bg-button-fomo text-headline font-black text-2xl py-5 border-4 border-stroke hover:-translate-y-1 shadow-[6px_6px_0px_0px_#272343] active:translate-y-0 active:shadow-none transition-all flex justify-center items-center gap-4">
+                    <span>CHECKOUT</span>
+                    <span>🔥</span>
+                </a>
+            @else
+                <button disabled class="w-full bg-secondary text-paragraph font-black text-2xl py-5 border-4 border-stroke opacity-50 cursor-not-allowed transition-all flex justify-center items-center gap-4">
+                    <span>CHECKOUT</span>
+                </button>
+            @endif
         </div>
     </div>
 </div>
