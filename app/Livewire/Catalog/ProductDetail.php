@@ -27,6 +27,13 @@ class ProductDetail extends Component
         $this->selectedVariant = $variantId;
     }
 
+    public function addToCart()
+    {
+        if ($this->selectedVariant) {
+            $this->dispatch('add-to-cart', variantId: $this->selectedVariant);
+        }
+    }
+
     public function render()
     {
         return view('livewire.catalog.product-detail')

@@ -95,8 +95,8 @@
 
             <!-- Call to Actions -->
             <div class="flex flex-col gap-4">
-                <!-- Add to Cart (Placeholder for Phase 31) -->
-                <button class="w-full bg-headline text-background font-black text-3xl py-6 border-4 border-stroke shadow-[8px_8px_0px_0px_#ffd803] hover:-translate-y-2 hover:shadow-[12px_12px_0px_0px_#ffd803] active:translate-y-0 active:shadow-none transition-all flex justify-center items-center gap-4">
+                <!-- Add to Cart (Fase 31) -->
+                <button wire:click="addToCart" class="w-full bg-headline text-background font-black text-3xl py-6 border-4 border-stroke shadow-[8px_8px_0px_0px_#ffd803] hover:-translate-y-2 hover:shadow-[12px_12px_0px_0px_#ffd803] active:translate-y-0 active:shadow-none transition-all flex justify-center items-center gap-4">
                     <span>ADD TO CART</span>
                     <span class="text-4xl">🛒</span>
                 </button>

@@ -23,6 +23,7 @@
             <a href="{{ route('catalog') }}" wire:navigate class="font-bold text-headline hover:text-button-fomo hover:underline decoration-4 underline-offset-4 transition-all">Catalog</a>
             <a href="#" class="font-bold text-headline hover:text-button-fomo hover:underline decoration-4 underline-offset-4 transition-all">Drops</a>
             <a href="#" class="font-bold text-headline hover:text-button-fomo hover:underline decoration-4 underline-offset-4 transition-all">Affiliate</a>
+            <button x-data @click="$dispatch('open-cart')" class="font-bold text-headline hover:text-button-fomo transition-all text-xl">🛒</button>
             @auth
                 <a href="{{ route('wishlist') }}" wire:navigate class="font-bold text-headline hover:text-button-fomo transition-all text-xl">❤️</a>
                 <a href="{{ route('dashboard') }}" class="font-bold text-headline hover:text-button-fomo hover:underline decoration-4 underline-offset-4 transition-all" wire:navigate>Dashboard</a>
@@ -46,5 +47,6 @@
     <!-- GSAP for Smooth Animations -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <livewire:cart.slide-out-cart />
 </body>
 </html>
