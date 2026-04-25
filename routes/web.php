@@ -43,6 +43,9 @@ Route::middleware('auth')->group(function () {
         Route::get('/products', \App\Livewire\Admin\Products\Index::class)->name('products.index');
         Route::get('/products/create', \App\Livewire\Admin\Products\Create::class)->name('products.create');
         Route::get('/products/{product}/edit', \App\Livewire\Admin\Products\Edit::class)->name('products.edit');
+        
+        Route::get('/orders', \App\Livewire\Admin\Orders\Index::class)->name('orders.index');
+        Route::get('/orders/{order}', \App\Livewire\Admin\Orders\Show::class)->name('orders.show');
     });
 
     Route::post('/logout', function () {
