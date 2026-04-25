@@ -38,6 +38,13 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/checkout/success/{order}', \App\Livewire\Checkout\Success::class)->name('checkout.success');
     
+    // Rute Khusus Admin
+    Route::middleware(['role:admin'])->prefix('admin')->name('admin.')->group(function () {
+        Route::get('/products', \App\Livewire\Admin\Products\Index::class)->name('products.index');
+        Route::get('/products/create', \App\Livewire\Admin\Products\Create::class)->name('products.create');
+        Route::get('/products/{product}/edit', \App\Livewire\Admin\Products\Edit::class)->name('products.edit');
+    });
+
     Route::post('/logout', function () {
         auth()->logout();
         request()->session()->invalidate();
