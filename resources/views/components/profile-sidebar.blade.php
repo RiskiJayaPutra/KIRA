@@ -17,10 +17,10 @@
         <a href="{{ route('wishlist') }}" wire:navigate class="font-bold text-lg px-4 py-3 border-2 border-stroke transition-all {{ request()->routeIs('wishlist') ? 'bg-button-fomo text-headline shadow-[4px_4px_0px_0px_rgba(39,35,67,1)] -translate-y-1' : 'bg-background hover:bg-secondary' }}">
             Wishlist
         </a>
-        <!-- Placeholders for future phases -->
-        <a href="#" class="font-bold text-lg px-4 py-3 border-2 border-stroke bg-background hover:bg-secondary transition-all opacity-50 cursor-not-allowed">
+        <a href="{{ route('orders') }}" wire:navigate class="font-bold text-lg px-4 py-3 border-2 border-stroke transition-all {{ request()->routeIs('orders') ? 'bg-button-fomo text-headline shadow-[4px_4px_0px_0px_rgba(39,35,67,1)] -translate-y-1' : 'bg-background hover:bg-secondary' }}">
             Order History
         </a>
+        <!-- Placeholders for future phases -->
         <a href="#" class="font-bold text-lg px-4 py-3 border-2 border-stroke bg-background hover:bg-secondary transition-all opacity-50 cursor-not-allowed">
             My Wallet
         </a>
