@@ -21,6 +21,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard/addresses', \App\Livewire\Profile\AddressBook::class)->name('address.book');
     Route::get('/dashboard/wishlist', \App\Livewire\Profile\WishlistPage::class)->name('wishlist');
     Route::get('/dashboard/orders', \App\Livewire\Profile\OrderHistory::class)->name('orders');
+    Route::get('/dashboard/wallet', \App\Livewire\Profile\MyWallet::class)->name('wallet');
     Route::get('/checkout/delivery', \App\Livewire\Checkout\Delivery::class)->name('checkout.delivery');
     
     // Placeholder untuk Fase 33 (Tripay)
