@@ -23,9 +23,13 @@
             <a href="{{ route('catalog') }}" wire:navigate class="font-bold text-headline hover:text-button-fomo hover:underline decoration-4 underline-offset-4 transition-all">Catalog</a>
             <a href="#" class="font-bold text-headline hover:text-button-fomo hover:underline decoration-4 underline-offset-4 transition-all">Drops</a>
             <a href="#" class="font-bold text-headline hover:text-button-fomo hover:underline decoration-4 underline-offset-4 transition-all">Affiliate</a>
-            <button x-data @click="$dispatch('open-cart')" class="font-bold text-headline hover:text-button-fomo transition-all text-xl">🛒</button>
+            <button x-data @click="$dispatch('open-cart')" class="text-headline hover:text-button-fomo transition-all flex items-center group">
+                <x-heroicon-o-shopping-cart class="w-7 h-7 group-hover:scale-110 group-hover:-rotate-12 transition-transform" />
+            </button>
             @auth
-                <a href="{{ route('wishlist') }}" wire:navigate class="font-bold text-headline hover:text-button-fomo transition-all text-xl">❤️</a>
+                <a href="{{ route('wishlist') }}" wire:navigate class="text-headline hover:text-button-fomo transition-all flex items-center group">
+                    <x-heroicon-o-heart class="w-7 h-7 group-hover:scale-110 group-hover:fill-button-fomo transition-all" />
+                </a>
                 <a href="{{ route('dashboard') }}" class="font-bold text-headline hover:text-button-fomo hover:underline decoration-4 underline-offset-4 transition-all" wire:navigate>Dashboard</a>
                 <form action="{{ route('logout') }}" method="POST" class="inline">
                     @csrf

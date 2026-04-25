@@ -24,8 +24,17 @@ Route::middleware('auth')->group(function () {
     
     // Placeholder untuk Fase 33 (Tripay)
     Route::get('/checkout/payment/{order}', function ($order) {
-        return "Fase 33: Halaman Pembayaran (Akan diintegrasikan dengan Tripay nanti). Order ID: " . $order;
+        return "
+        <div style='font-family: sans-serif; text-align: center; padding-top: 50px;'>
+            <h1>Fase 33: Simulasi Gateway Pembayaran</h1>
+            <p>Order ID: {$order}</p>
+            <p>Anggap saja Anda sudah membayar menggunakan Tripay.</p>
+            <a href='" . route('checkout.success', $order) . "' style='display: inline-block; padding: 15px 30px; background: #272343; color: white; text-decoration: none; font-weight: bold; font-size: 20px; border: 4px solid #bae8e8; box-shadow: 4px 4px 0px 0px #bae8e8;'>SIMULASIKAN PEMBAYARAN BERHASIL</a>
+        </div>
+        ";
     })->name('checkout.payment');
+
+    Route::get('/checkout/success/{order}', \App\Livewire\Checkout\Success::class)->name('checkout.success');
     
     Route::post('/logout', function () {
         auth()->logout();

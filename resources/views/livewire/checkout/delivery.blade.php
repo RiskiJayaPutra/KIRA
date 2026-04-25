@@ -3,7 +3,7 @@
         <h1 class="text-5xl font-black text-headline uppercase tracking-tighter" style="-webkit-text-stroke: 1px #272343;">CHECKOUT.</h1>
         <div class="flex items-center gap-4 mt-4 text-headline font-black">
             <span class="bg-button-fomo px-4 py-2 border-2 border-stroke shadow-[4px_4px_0px_0px_#272343]">1. LOGISTIK</span>
-            <span class="text-stroke opacity-50">➡</span>
+            <x-heroicon-s-chevron-right class="w-6 h-6 text-stroke opacity-50" />
             <span class="bg-background px-4 py-2 border-2 border-stroke opacity-50">2. PEMBAYARAN</span>
         </div>
     </div>
