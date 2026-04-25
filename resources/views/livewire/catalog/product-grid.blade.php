@@ -97,9 +97,9 @@
                                 
                                 <!-- Hover Quick Actions -->
                                 <div class="absolute inset-0 bg-headline/80 flex flex-col justify-center items-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                    <button class="bg-button-fomo text-headline font-black px-6 py-3 border-4 border-stroke hover:scale-105 transition-transform w-3/4">
+                                    <a href="{{ route('product.detail', $product->slug) }}" wire:navigate class="bg-button-fomo text-headline font-black px-6 py-3 border-4 border-stroke hover:scale-105 transition-transform w-3/4 text-center block">
                                         QUICK VIEW
-                                    </button>
+                                    </a>
                                     <button class="bg-background text-headline font-black px-6 py-3 border-4 border-stroke hover:scale-105 transition-transform w-3/4">
                                         + WISHLIST
                                     </button>

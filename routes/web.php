@@ -9,6 +9,7 @@ Route::get('/', function () {
 });
 
 Route::get('/catalog', \App\Livewire\Catalog\ProductGrid::class)->name('catalog');
+Route::get('/product/{slug}', \App\Livewire\Catalog\ProductDetail::class)->name('product.detail');
 
 Route::middleware('guest')->group(function () {
     Route::get('/login', Login::class)->name('login');
