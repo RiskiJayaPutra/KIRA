@@ -109,4 +109,7 @@
             
         </div>
     </div>
+
+    <!-- Sistem Ulasan (Fase 37) -->
+    <livewire:catalog.product-reviews :product-id="$product->id" />
 </div>
