@@ -24,6 +24,7 @@
             <a href="#" class="font-bold text-headline hover:text-button-fomo hover:underline decoration-4 underline-offset-4 transition-all">Drops</a>
             <a href="#" class="font-bold text-headline hover:text-button-fomo hover:underline decoration-4 underline-offset-4 transition-all">Affiliate</a>
             @auth
+                <a href="{{ route('wishlist') }}" wire:navigate class="font-bold text-headline hover:text-button-fomo transition-all text-xl">❤️</a>
                 <a href="{{ route('dashboard') }}" class="font-bold text-headline hover:text-button-fomo hover:underline decoration-4 underline-offset-4 transition-all" wire:navigate>Dashboard</a>
                 <form action="{{ route('logout') }}" method="POST" class="inline">
                     @csrf

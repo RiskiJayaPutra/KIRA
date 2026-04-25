@@ -19,6 +19,7 @@ Route::middleware('guest')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', \App\Livewire\Profile\Dashboard::class)->name('dashboard');
     Route::get('/dashboard/addresses', \App\Livewire\Profile\AddressBook::class)->name('address.book');
+    Route::get('/dashboard/wishlist', \App\Livewire\Profile\WishlistPage::class)->name('wishlist');
     
     Route::post('/logout', function () {
         auth()->logout();

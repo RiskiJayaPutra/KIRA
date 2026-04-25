@@ -101,11 +101,10 @@
                     <span class="text-4xl">🛒</span>
                 </button>
                 
-                <!-- Add to Wishlist (Placeholder for Phase 30) -->
-                <button class="w-full bg-background text-headline font-black text-xl py-4 border-4 border-stroke shadow-[4px_4px_0px_0px_#bae8e8] hover:-translate-y-1 hover:shadow-[6px_6px_0px_0px_#bae8e8] active:translate-y-0 active:shadow-none transition-all flex justify-center items-center gap-2">
-                    <span>ADD TO WISHLIST</span>
-                    <span class="text-2xl">🔥</span>
-                </button>
+                <!-- Add to Wishlist (Fase 30) -->
+                @if($selectedVariant)
+                    <livewire:catalog.wishlist-button :variant-id="$selectedVariant" style="full" wire:key="wishlist-detail-{{ $selectedVariant }}" />
+                @endif
             </div>
             
         </div>

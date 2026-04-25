@@ -100,9 +100,7 @@
                                     <a href="{{ route('product.detail', $product->slug) }}" wire:navigate class="bg-button-fomo text-headline font-black px-6 py-3 border-4 border-stroke hover:scale-105 transition-transform w-3/4 text-center block">
                                         QUICK VIEW
                                     </a>
-                                    <button class="bg-background text-headline font-black px-6 py-3 border-4 border-stroke hover:scale-105 transition-transform w-3/4">
-                                        + WISHLIST
-                                    </button>
+                                    <livewire:catalog.wishlist-button :product-id="$product->id" style="grid" wire:key="wishlist-grid-{{ $product->id }}" />
                                 </div>
                             </div>
 
