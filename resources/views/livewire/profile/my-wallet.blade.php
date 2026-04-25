@@ -64,10 +64,38 @@
                             </div>
                         </div>
                         
-                        <button class="w-full bg-headline text-background font-black py-4 border-4 border-stroke shadow-[4px_4px_0px_0px_#bae8e8] hover:-translate-y-1 active:translate-y-0 active:shadow-none transition-all mt-auto mt-6 flex justify-center items-center gap-2">
-                            <x-heroicon-o-banknotes class="w-5 h-5" />
-                            CAIRKAN KOMISI
-                        </button>
+                        @if(session('payout_success'))
+                            <div class="mt-4 bg-green-400 text-headline p-3 font-bold border-2 border-stroke text-sm text-center">
+                                {{ session('payout_success') }}
+                            </div>
+                        @endif
+
+                        @if($showPayoutForm)
+                            <div class="w-full mt-6 bg-background border-4 border-stroke p-4 text-left shadow-[4px_4px_0px_0px_#272343]">
+                                <h4 class="font-black text-headline uppercase mb-4 border-b-2 border-stroke pb-2">Form Pencairan</h4>
+                                <form wire:submit="requestPayout" class="space-y-4">
+                                    <div>
+                                        <label class="block text-xs font-bold uppercase mb-1">Nominal (Min. 50000)</label>
+                                        <input type="number" wire:model="payoutAmount" class="w-full bg-secondary border-2 border-stroke p-2 font-bold focus:outline-none focus:bg-background" placeholder="50000">
+                                        @error('payoutAmount') <span class="text-button-fomo text-xs font-bold">{{ $message }}</span> @enderror
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-bold uppercase mb-1">Bank & No. Rekening</label>
+                                        <textarea wire:model="bankDetails" rows="2" class="w-full bg-secondary border-2 border-stroke p-2 font-bold focus:outline-none focus:bg-background" placeholder="BCA 12345678 a.n. John Doe"></textarea>
+                                        @error('bankDetails') <span class="text-button-fomo text-xs font-bold">{{ $message }}</span> @enderror
+                                    </div>
+                                    <div class="flex gap-2 pt-2">
+                                        <button type="button" wire:click="togglePayoutForm" class="flex-1 bg-secondary text-headline font-black py-2 border-2 border-stroke hover:bg-headline hover:text-background transition-colors text-sm">BATAL</button>
+                                        <button type="submit" class="flex-1 bg-headline text-background font-black py-2 border-2 border-stroke hover:bg-button-fomo hover:text-headline transition-colors text-sm shadow-[2px_2px_0px_0px_#bae8e8]">KIRIM</button>
+                                    </div>
+                                </form>
+                            </div>
+                        @else
+                            <button wire:click="togglePayoutForm" class="w-full bg-headline text-background font-black py-4 border-4 border-stroke shadow-[4px_4px_0px_0px_#bae8e8] hover:-translate-y-1 active:translate-y-0 active:shadow-none transition-all mt-auto mt-6 flex justify-center items-center gap-2">
+                                <x-heroicon-o-banknotes class="w-5 h-5" />
+                                CAIRKAN KOMISI
+                            </button>
+                        @endif
                     @else
                         <!-- Jika Belum Aktif -->
                         <div class="flex-grow flex flex-col justify-center items-center text-center py-4">

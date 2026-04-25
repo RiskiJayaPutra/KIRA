@@ -28,7 +28,7 @@
             <a href="{{ route('admin.orders.index') }}" wire:navigate class="px-6 py-4 border-b-2 border-stroke transition-colors flex items-center gap-3 {{ request()->routeIs('admin.orders.*') ? 'bg-tertiary text-headline' : 'hover:bg-secondary hover:text-headline' }}">
                 <x-heroicon-o-clipboard-document-check class="w-6 h-6" /> Pemrosesan Pesanan
             </a>
-            <a href="#" class="px-6 py-4 border-b-2 border-stroke opacity-50 cursor-not-allowed flex items-center gap-3">
+            <a href="{{ route('admin.payouts.index') }}" wire:navigate class="px-6 py-4 border-b-2 border-stroke transition-colors flex items-center gap-3 {{ request()->routeIs('admin.payouts.*') ? 'bg-tertiary text-headline' : 'hover:bg-secondary hover:text-headline' }}">
                 <x-heroicon-o-banknotes class="w-6 h-6" /> Pencairan Afiliasi
             </a>
             <a href="{{ route('dashboard') }}" wire:navigate class="px-6 py-4 border-b-2 border-stroke hover:bg-secondary hover:text-headline transition-colors flex items-center gap-3 mt-auto">

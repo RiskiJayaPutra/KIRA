@@ -46,6 +46,8 @@ Route::middleware('auth')->group(function () {
         
         Route::get('/orders', \App\Livewire\Admin\Orders\Index::class)->name('orders.index');
         Route::get('/orders/{order}', \App\Livewire\Admin\Orders\Show::class)->name('orders.show');
+        
+        Route::get('/payouts', \App\Livewire\Admin\Payouts\Index::class)->name('payouts.index');
     });
 
     Route::post('/logout', function () {
